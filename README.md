@@ -44,3 +44,4 @@ Fuentes:
 
 + https://github.com/pepeul1191/express-nodejs-v3
 + https://veekun.com/dex/downloads
++ https://expressjs.com/en/resources/middleware/cors.html

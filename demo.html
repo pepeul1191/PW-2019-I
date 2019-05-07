@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hola</title>
+    <script>
+        const BASE_URL = "http://localhost:5000/";
+    </script>
+</head>
+<body>
+    
+    <script>
+        function loadData() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            xhttp.open("GET", BASE_URL + "hello", true);
+            xhttp.send();
+        }
+        loadData();
+    </script>
+</body>
+</html>
