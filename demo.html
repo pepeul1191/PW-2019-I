@@ -3,7 +3,8 @@
 <head>
     <title>Hola</title>
     <script>
-        const BASE_URL = "http://localhost:5000/";
+        // const BASE_URL = "http://localhost:5000/";
+        const BASE_URL = "https://blooming-forest-56812.herokuapp.com/";
     </script>
 </head>
 <body>
@@ -16,7 +17,7 @@
                     console.log(JSON.parse(this.responseText));
                 }
             };
-            xhttp.open("GET", BASE_URL + "generator?filas=13&borde=true&relleno=true", true);
+            xhttp.open("GET", BASE_URL + "generator?filas=10&borde=true&relleno=true", true);
             xhttp.send();
         }
         loadData();

@@ -26,7 +26,7 @@ function enArreglo(arreglo, valor) {
 
 function generarAleatorios(filas){
   var arreglo = [];
-	for (var i = 0; i < filas; i++) {
+	for (var i = 0; i < filas * filas; i++) {
 		var continuar = true;
 		while(continuar == true){
 			var temp = aletaorio(1, 151);
