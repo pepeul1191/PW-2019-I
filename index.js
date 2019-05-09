@@ -68,4 +68,14 @@ express()
     }
     res.send(JSON.stringify(rpta))
   })
+  .post('/user/access', function(req, res){
+    // validar csrf
+    request_header = req.get('token')
+    if (request_header == 'ulima'){
+      res.send('Ok')
+    }else{
+      res.status(500).send('=(')
+    }
+    // con
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
