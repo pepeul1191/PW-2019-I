@@ -46,3 +46,4 @@ Fuentes:
 + https://veekun.com/dex/downloads
 + https://expressjs.com/en/resources/middleware/cors.html
 + https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
++ https://github.com/pepeul1191/hapijs-nodejs-mongodb

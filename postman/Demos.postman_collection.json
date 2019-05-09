@@ -14,33 +14,53 @@
 	"requests": [
 		{
 			"id": "0ec2b111-78fb-61b6-d991-15f8bf48370b",
-			"headers": "token: ulima\n",
+			"headers": "token: ulima\nContent-Type: application/x-www-form-urlencoded\n",
 			"headerData": [
 				{
 					"key": "token",
 					"value": "ulima",
 					"description": "",
 					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
 				}
 			],
 			"url": "localhost:5000/user/access",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "60274429-52b6-323e-83a4-b727a617c548",
-			"data": null,
-			"dataMode": "params",
-			"name": "user/access - 200",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1557416325721,
+			"data": [
+				{
+					"key": "user",
+					"value": "20051191",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "pass",
+					"value": "20051191",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {}
+			"helperAttributes": {},
+			"time": 1557420271623,
+			"name": "user/access - 200",
+			"description": "",
+			"collectionId": "60274429-52b6-323e-83a4-b727a617c548",
+			"responses": []
 		},
 		{
 			"id": "3009f40e-9432-90f1-84d3-26eb6033e322",

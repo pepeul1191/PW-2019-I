@@ -1,5 +1,24 @@
 const express = require('express')
 const path = require('path')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+
+// database, models
+
+var Schema = mongoose.Schema
+mongoose.connect('mongodb://localhost:27017/access')
+
+var User = mongoose.model('users',
+  new Schema(
+    {
+      user:  String,
+      pass:  String,
+    }
+  )
+)
+
+// aplicación
+
 const PORT = process.env.PORT || 5000
 var cors = require('cors')
 
@@ -42,6 +61,8 @@ function generarAleatorios(filas){
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(cors())
+  .use(bodyParser())
+  //.use(bodyParser.json())
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
@@ -70,12 +91,31 @@ express()
   })
   .post('/user/access', function(req, res){
     // validar csrf
-    request_header = req.get('token')
-    if (request_header == 'ulima'){
-      res.send('Ok')
+    if (req.get('token') == 'ulima'){
+      // validar usuario
+      User.find({
+        user: req.body.user,
+        pass: req.body.pass,
+      }, function(err, documents){
+        if (err){
+          var rpta = JSON.parse({
+            'tipo_mensaje': 'error',
+            'mensaje': [
+              'Se ha producido un error en validar el usuario',
+              err.toString()
+            ]
+          })
+          res.status(500).send(rpta)
+        }else{
+          if(documents.length == 0){
+            res.send('0')
+          }else{
+            res.send('1')
+          }
+        }
+      })
     }else{
       res.status(500).send('=(')
     }
-    // con
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
